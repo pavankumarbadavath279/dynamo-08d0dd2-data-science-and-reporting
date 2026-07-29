@@ -1,0 +1,6 @@
+{
+  "age_pvalue": 0.032,
+  "age_significant": true,
+  "gender_pvalue": 0.27,
+  "gender_significant": false
+}
