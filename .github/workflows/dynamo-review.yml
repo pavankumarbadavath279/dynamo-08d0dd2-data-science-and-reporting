@@ -21,5 +21,22 @@ concurrency:
 
 jobs:
   review:
-    uses: handshake-project-dynamo/handshake-orchestration-tb2/.github/workflows/dynamo-review.yml@main
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.10'
+
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
+
+      - name: Run tests
+        run: pytest --maxfail=1 --disable-warnings -q
+
     secrets: inherit
