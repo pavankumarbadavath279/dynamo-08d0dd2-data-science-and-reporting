@@ -9,3 +9,4 @@ def test_pass_scores():
 if __name__ == "__main__":
     # Run pytest with -s so prints are visible in GitHub Actions logs
     os.system("pytest -s --maxfail=1 --disable-warnings -q")
+print('New test line for PR')
